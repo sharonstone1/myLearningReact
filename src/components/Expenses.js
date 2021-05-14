@@ -1,39 +1,30 @@
-import React,{useState, useEffect } from 'react';
+import React,{useState } from 'react';
 import ExpenseItem from './ExpenseItems';
 import Card from './Card';
 import ExpensesFilter from './ExpensesFilter';
 
-// test
-
 const Expenses = (props) => {
-  const [expenses, setExpenses ] = useState(props.items) // initialise the statement with the parent 
+  
   const [filterYear, setFilterYear]=useState('2020')
   
   const filterHandler = (selectedYear)=>{
     setFilterYear(selectedYear)
 
   }
- 
- // updating the statement
-  useEffect(() => { 
-    setExpenses(props.items)
-  }, [props.items])  // skip every subsequent with an array paremeter []
-
-
-  // add a new item in an array object
-  const listItems = expenses.map((item) => 
-    <div>
-    <ExpenseItem title={item.title} amount={item.amount} date={item.date} key={item.id}/>
-    <br />
-    </div>
-  );
 
 	return (
 		<div >
 			<Card className="expenses">
         <ExpensesFilter  selected={filterYear}   onChangeFilter ={filterHandler} />
 				<br />
-       <li> { listItems } </li>
+        <ExpenseItem title={props.items[0].title} amount={props.items[0].amount} date={props.items[0].date}/>
+        <br />
+        <ExpenseItem title={props.items[1].title} amount={props.items[1].amount} date={props.items[1].date}/>
+        <br />
+        <ExpenseItem title={props.items[2].title} amount={props.items[2].amount} date={props.items[2].date}/>
+        <br />
+        <ExpenseItem title={props.items[3].title} amount={props.items[3].amount} date={props.items[3].date}/>
+        <br />
 			</Card>
 		</div>
 	);
