@@ -3,6 +3,8 @@ import ExpenseItem from './ExpenseItems';
 import Card from './Card';
 import ExpensesFilter from './ExpensesFilter';
 
+// test
+
 const Expenses = (props) => {
   const [expenses, setExpenses ] = useState(props.items) // initialise the statement with the parent 
   const [filterYear, setFilterYear]=useState('2020')
@@ -21,7 +23,7 @@ const Expenses = (props) => {
   // add a new item in an array object
   const listItems = expenses.map((item) => 
     <div>
-    <ExpenseItem title={item.title} amount={item.amount} date={item.date} />
+    <ExpenseItem title={item.title} amount={item.amount} date={item.date} key={item.id}/>
     <br />
     </div>
   );
@@ -31,7 +33,7 @@ const Expenses = (props) => {
 			<Card className="expenses">
         <ExpensesFilter  selected={filterYear}   onChangeFilter ={filterHandler} />
 				<br />
-        { listItems }
+       <li> { listItems } </li>
 			</Card>
 		</div>
 	);
