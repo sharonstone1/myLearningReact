@@ -1,23 +1,54 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
 
+import Expenses from './components/Expenses';
+import NewExpense from './components/NewExpense';
+
+
+
 function App() {
+  
+  
+  // const expenses =[
+  //   {id:'e1', title:'Toilet Paper', amount:94.12, date:new Date(2021, 8, 13)},
+  //   {id:'e2', title:'New TV', amount:799.49, date:new Date(2021, 11, 3)},
+  //   {id:'e3', title:'Car Insurrance', amount:294.76, date:new Date(2021, 3, 28)},
+  //   {id:'e4', title:'New Desk (Wooden)', amount:450, date:new Date(2021, 6, 11)}
+  // ]
+
+ const [expenses, setExpenses]=useState([
+    {id:'e1', title:'Toilet Paper', amount:94.12, date:new Date(2021, 8, 13)},
+    {id:'e2', title:'New TV', amount:799.49, date:new Date(2021, 11, 3)},
+    {id:'e3', title:'Car Insurrance', amount:294.76, date:new Date(2021, 3, 28)},
+    {id:'e4', title:'New Desk (Wooden)', amount:450, date:new Date(2021, 6, 11)}
+ ])
+
+const addExpenseHandler = (newExpense)=>{
+  console.log('updating expenses with ' + String(newExpense) );
+
+  setExpenses(
+    [...expenses, newExpense]
+  )
+
+  // console.log(expenses)
+}
+  
+
+
+
+
+  // render the statement
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+
+      <h2>Let Go Start</h2>
+      
+      <NewExpense  onAddExpense={addExpenseHandler}/>
+
+      <Expenses items={expenses} />
+    
+
     </div>
   );
 }

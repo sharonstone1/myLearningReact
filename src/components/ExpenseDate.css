@@ -1,0 +1,37 @@
+.expense_date{
+
+    font-size: 1rem;
+    font-weight: bold;
+    color: aliceblue;
+    border: 1px solid white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: rgb(15, 15, 15);
+    border-radius: 12px;
+    
+}
+
+.expense_month{
+    align-items: center;
+    padding: 0;
+    margin: 0.2rem;
+    margin-right: 0.5rem;
+    width: 70px;
+    height: 20px;
+}
+
+.expense_year{
+    align-items: center;
+    margin: 0.2rem;
+    margin-right: 0.5rem;
+    width: 70px;
+    height: 20px;
+}
+
+.expense_day{
+    align-items: center;
+    margin: 0.2rem;
+    margin-right: 0.5rem;
+    width: 70px;
+    height: 20px;
+}
