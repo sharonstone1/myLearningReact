@@ -1,5 +1,6 @@
 import React,{useState } from 'react';
 import Card from './Card';
+import ExpensesChart from './ExpensesChart';
 import ExpensesFilter from './ExpensesFilter';
 import ExpenseList from './ExpensesList';
 
@@ -22,6 +23,7 @@ const Expenses = (props) => {
 			<Card className="expenses">
         <ExpensesFilter  selected={filterYear}   onChangeFilter ={filterHandler} />
 				<br />
+        <ExpensesChart  expenses={filteredExpensesData}/>
         <ExpenseList  items={filteredExpensesData}/>
         {/* {filteredExpensesData.length ===0 && <p>No Expenses found</p>} */}
 
